@@ -32,7 +32,13 @@ Uppdatingtodos: (todo : TodoTypes): TodoTypes => {
     return todo;    
 },
 
-
+//deletingTodo 
+deletingTodos: (todo: TodoTypes): TodoTypes[] => {
+  const todos = Todoservice.getTodos();
+  const updatedTodos = todos.filter(i => i.id !== todo.id);
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedTodos));
+  return updatedTodos;
+},
 
 
 };
