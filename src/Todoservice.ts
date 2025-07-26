@@ -33,9 +33,9 @@ Uppdatingtodos: (todo : TodoTypes): TodoTypes => {
 },
 
 //deletingTodo 
-deletingTodos: (todo: TodoTypes): TodoTypes[] => {
+deletingTodos: (id: number): TodoTypes[] => {
   const todos = Todoservice.getTodos();
-  const updatedTodos = todos.filter(i => i.id !== todo.id);
+  const updatedTodos = todos.filter(i => i.id !== id);
   localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updatedTodos));
   return updatedTodos;
 },
